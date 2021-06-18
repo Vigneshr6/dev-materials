@@ -77,7 +77,7 @@ CREATE TABLE staff (
 -- SQLINES LICENSE FOR EVALUATION USE ONLY
 CREATE SEQUENCE order_seq;
 
-CREATE TABLE order (
+CREATE TABLE "order" (
 	order_id INT DEFAULT NEXTVAL ('order_seq')  PRIMARY KEY,
 	customer_id INT,
 	order_status smallint NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE order_item (
 	list_price DECIMAL (10, 2) NOT NULL,
 	discount DECIMAL (4, 2) NOT NULL DEFAULT 0,
 	PRIMARY KEY (order_id, item_id),
-	FOREIGN KEY (order_id) REFERENCES order (order_id) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (order_id) REFERENCES "order" (order_id) ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY (product_id) REFERENCES product (product_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
